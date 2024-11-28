@@ -243,7 +243,7 @@ func NewConn(tp string, vkey string, server string, connType string, proxyUrl st
 			//_, err = io.WriteString(connection, "HELO")
 		}
 	} else {
-		sess, err = kcp.DialWithOptions(server, nil, 10, 3)
+		sess, err = kcp.DialWithOptions(server, nil, 0, 0)
 		if err == nil {
 			conn.SetUdpSession(sess)
 			connection = sess

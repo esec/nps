@@ -367,7 +367,7 @@ func SetUdpSession(sess *kcp.UDPSession) {
 	sess.SetReadBuffer(64 * 1024)
 	sess.SetWriteBuffer(64 * 1024)
 	sess.SetNoDelay(1, 10, 2, 1)
-	sess.SetMtu(1600)
+	sess.SetMtu(36)
 	sess.SetACKNoDelay(true)
 	sess.SetWriteDelay(false)
 }
