@@ -362,9 +362,12 @@ func GetLenBytes(buf []byte) (b []byte, err error) {
 
 //udp connection setting
 func SetUdpSession(sess *kcp.UDPSession) {
-	sess.SetStreamMode(true)
-	sess.SetNoDelay(0, 40, 1, 1)
+	sess.SetNoDelay(1, 10, 1, 1)
+	sess.SetReadBuffer(64 * 1024)
+	sess.SetWriteBuffer(64 * 1024)
 	sess.SetMtu(36)
+	sess.SetACKNoDelay(true)
+	sess.SetWriteDelay(false)
 }
 
 //conn1 mux conn
